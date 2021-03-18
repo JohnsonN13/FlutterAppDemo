@@ -1,6 +1,6 @@
 # Demo Application Mobile Flutter
 
-Application mobile de vente en ligne. 
+Application mobile de vente en ligne.
 Thème utilisé choisit au pif.
 Les images utilisées sont libres de doits.
 
