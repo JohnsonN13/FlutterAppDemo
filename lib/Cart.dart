@@ -1,5 +1,4 @@
 import 'package:myapp/Product.dart';
-import "package:myapp/Details.dart";
 
 class Cart {
 

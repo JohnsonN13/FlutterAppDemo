@@ -3,7 +3,6 @@ import 'package:myapp/views/CartView.dart';
 import 'package:myapp/Cart.dart';
 
 class CheckoutView extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +20,7 @@ class CheckoutView extends StatelessWidget {
                 padding: EdgeInsets.all(15.0),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 8, right: 30),
+                padding: EdgeInsets.only(top: 5, right: 30),
                 child: Stack(
                   children: <Widget>[
                     IconButton(
@@ -37,18 +36,19 @@ class CheckoutView extends StatelessWidget {
                         );
                       },
                     ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.red),
-                        alignment: Alignment.center,
-                        child: Text('${list.length}'),
+                    if (list.length > 0)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                          alignment: Alignment.center,
+                          child: Text('${list.length}'),
+                        ),
                       ),
-                    ),
                   ],
                 ),
               )
@@ -59,13 +59,20 @@ class CheckoutView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
-                Image.asset("assets/images/check.png", height: 300, width: 300,)
+                Image.asset(
+                  "assets/images/check.png",
+                  height: 300,
+                  width: 300,
+                )
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text("Commande Validée", style: TextStyle(fontSize: 24, color: Colors.lightGreen), textAlign: TextAlign.center,),
+              child: Text(
+                "Commande Validée",
+                style: TextStyle(fontSize: 24, color: Colors.lightGreen),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ));

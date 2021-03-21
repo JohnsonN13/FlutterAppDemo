@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(15.0),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 8, right: 30),
+              padding: EdgeInsets.only(top: 5, right: 30),
               child: Stack(
                 children: <Widget>[
                   IconButton(

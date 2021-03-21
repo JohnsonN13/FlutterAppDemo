@@ -25,7 +25,7 @@ class ProductView extends StatelessWidget {
                 padding: EdgeInsets.all(15.0),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 8, right: 30),
+                padding: EdgeInsets.only(top: 5, right: 30),
                 child: Stack(
                   children: <Widget>[
                     IconButton(
@@ -41,18 +41,19 @@ class ProductView extends StatelessWidget {
                         );
                       },
                     ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.red),
-                        alignment: Alignment.center,
-                        child: Text('${list.length}'),
+                    if (list.length > 0)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                          alignment: Alignment.center,
+                          child: Text('${list.length}'),
+                        ),
                       ),
-                    ),
                   ],
                 ),
               )
@@ -64,7 +65,7 @@ class ProductView extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(product.image),
+                  image: AssetImage(product.image),
                 ),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40),
@@ -75,7 +76,6 @@ class ProductView extends StatelessWidget {
               padding: const EdgeInsets.only(
                 top: 30,
                 left: 30,
-                right: 30,
               ),
               child: Column(
                 children: [
@@ -92,118 +92,111 @@ class ProductView extends StatelessWidget {
                                   fontStyle: FontStyle.italic)),
                           TextSpan(
                               text: "${product.title}",
-                              style: TextStyle(
-                                fontSize: 21,
-                              ))
+                              style:
+                                  TextStyle(fontSize: 21, color: Colors.black))
                         ])),
-                        RichText(
-                            text: TextSpan(children: [
-                          TextSpan(
-                              text: "Prix\n",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.lightGreen,
-                                  fontStyle: FontStyle.italic)),
-                          TextSpan(
-                              text: "${product.price}\$",
-                              style: TextStyle(
-                                fontSize: 21,
-                              ))
-                        ])),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 30),
+                          child: RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                                text: "Prix\n",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.lightGreen,
+                                    fontStyle: FontStyle.italic)),
+                            TextSpan(
+                                text: "${product.price}\$",
+                                style: TextStyle(
+                                    fontSize: 21, color: Colors.black))
+                          ])),
+                        ),
                       ]),
                   Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 20, right: 30),
                       child: Column(
                         children: [
                           Text(product.description,
+                              textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 18,
                               )),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(top: 20),
                             child: Row(children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(right: 100),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                                text: "+ Cadre\n",
-                                                style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.lightGreen,
-                                                    fontStyle:
-                                                        FontStyle.italic)),
-                                            TextSpan(
-                                                text:
-                                                    "${product.details.cadre}",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ))
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: RichText(
-                                            text: TextSpan(children: [
+                              Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
                                           TextSpan(
-                                              text: "+ Couleur\n",
+                                              text: "+ Cadre\n",
                                               style: TextStyle(
                                                   fontSize: 18,
                                                   color: Colors.lightGreen,
                                                   fontStyle: FontStyle.italic)),
                                           TextSpan(
-                                              text:
-                                                  "${product.details.couleur}",
+                                              text: "${product.details.cadre}",
                                               style: TextStyle(
-                                                fontSize: 18,
-                                              ))
-                                        ])),
+                                                  fontSize: 18,
+                                                  color: Colors.black))
+                                        ],
                                       ),
-                                    ]),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  RichText(
-                                      text: TextSpan(children: [
-                                    TextSpan(
-                                        text: "+ Fourche\n",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.lightGreen,
-                                          fontStyle: FontStyle.italic,
-                                        )),
-                                    TextSpan(
-                                        text: "${product.details.fourche}",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                        ))
-                                  ])),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: RichText(
-                                        text: TextSpan(children: [
-                                      TextSpan(
-                                          text: "+ Poids\n",
-                                          style: TextStyle(
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: RichText(
+                                          text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "+ Couleur\n",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.lightGreen,
+                                                fontStyle: FontStyle.italic)),
+                                        TextSpan(
+                                            text: "${product.details.couleur}",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black))
+                                      ])),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: RichText(
+                                          text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "+ Fourche\n",
+                                            style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.lightGreen,
-                                              fontStyle: FontStyle.italic)),
-                                      TextSpan(
-                                          text: "${product.details.poids}",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                          ))
-                                    ])),
-                                  ),
-                                ],
-                              ),
+                                              fontStyle: FontStyle.italic,
+                                            )),
+                                        TextSpan(
+                                            text: "${product.details.fourche}",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black))
+                                      ])),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: RichText(
+                                          text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "+ Poids\n",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.lightGreen,
+                                                fontStyle: FontStyle.italic)),
+                                        TextSpan(
+                                            text: "${product.details.poids}",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black))
+                                      ])),
+                                    ),
+                                  ]),
                             ]),
                           ),
                         ],
@@ -218,7 +211,6 @@ class ProductView extends StatelessWidget {
 }
 
 class ButtonCounter extends StatefulWidget {
-
   Product productAdd;
   ButtonCounter({Key key, this.productAdd}) : super(key: key);
 
@@ -245,19 +237,18 @@ class Counter extends State<ButtonCounter> {
 
   void addCart() {
     setState(() {
-      if(counter > 0){
-        if(list.contains(widget.productAdd)) {
+      if (counter > 0) {
+        if (list.contains(widget.productAdd)) {
           int ind = list.indexOf(widget.productAdd);
           list[ind].quantity += counter;
           showAlertDialog(context, counter);
-        }
-        else {
+        } else {
           widget.productAdd.quantity = counter;
           list.add(widget.productAdd);
           showAlertDialog(context, counter);
-        } 
-      }   
-      else showAlertDialog2(context, counter);
+        }
+      } else
+        showAlertDialog2(context, counter);
     });
   }
 
@@ -313,12 +304,8 @@ class Counter extends State<ButtonCounter> {
 }
 
 showAlertDialog(BuildContext context, double counter) {
-
   AlertDialog alert = AlertDialog(
-    title: Text(
-      "Infos",
-      style: TextStyle(color: Colors.lightGreen)
-    ),
+    title: Text("Infos", style: TextStyle(color: Colors.lightGreen)),
     content: Text("Produit ajouté en " + "${counter}" + " exemplaires."),
     actions: [
       FlatButton(
@@ -337,12 +324,8 @@ showAlertDialog(BuildContext context, double counter) {
 }
 
 showAlertDialog2(BuildContext context, double counter) {
-
   AlertDialog alert = AlertDialog(
-    title: Text(
-      "Erreur",
-      style: TextStyle(color: Colors.lightGreen)
-    ),
+    title: Text("Erreur", style: TextStyle(color: Colors.lightGreen)),
     content: Text("Vous ne pouvez pas ajouter " + "${counter}" + " produits."),
     actions: [
       FlatButton(
@@ -359,4 +342,3 @@ showAlertDialog2(BuildContext context, double counter) {
     },
   );
 }
-
