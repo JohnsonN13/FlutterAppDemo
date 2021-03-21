@@ -9,7 +9,7 @@ Les images utilisées sont libres de doits.
 
 ''''Dart  
 ''''Chrome  
-''''VsCode
+''''VsCode  
 ''''Sdk phone Pixel 5"
 
 ---------
