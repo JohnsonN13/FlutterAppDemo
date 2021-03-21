@@ -29,4 +29,20 @@ Les images utilisées sont libres de doits.
 
 ## Screens
 
-![](screens/ListView.png)
+Liste des produits :  
+![](screens/ListView.png)  
+
+Liste des produits + notif d'ajout au panier :  
+![](screens/ListViewAdd.png)  
+
+Vue détail des produits :  
+![](screens/ProductView.png)  
+
+Vue panier :  
+![](screens/CartViewWithProducts.png)  
+
+Panier vide :  
+![](screens/CartViewWithoutProducts.png)  
+
+Validation :  
+![](screens/Check.png)
