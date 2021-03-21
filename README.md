@@ -10,6 +10,7 @@ Les images utilisées sont libres de doits.
 ''''Dart  
 ''''Chrome  
 ''''VsCode
+''''Sdk phone Pixel 5"
 
 ---------
 ## Fonctionnalités implémentées :
@@ -24,7 +25,7 @@ Les images utilisées sont libres de doits.
 * Intégration d'une base de données
 * Outil recherche
 * Menu
-* Capture d'écran de l'appli
+<del>* Captures d'écran de l'appli<del>
 * Changer l'attribut ``String procuct.color`` par le widget `Color`
 
 ## Screens
