@@ -26,7 +26,8 @@ Les images utilisées sont libres de doits.
 * Outil recherche
 * Menu
 * <del>Captures d'écran de l'appli<del>
-* Changer l'attribut ``String procuct.color`` par le widget `Color`
+* Changer l'attribut ``String procuct.color`` par le widget `Color`  
+* Bouton suppression dans le panier  
 
 ## Screens
 
